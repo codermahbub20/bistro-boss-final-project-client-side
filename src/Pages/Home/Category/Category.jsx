@@ -3,11 +3,17 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+import img1 from '../../../assets/home/slide1.jpg'
+import img2 from '../../../assets/home/slide2.jpg'
+import img3 from '../../../assets/home/slide3.jpg'
+import img4 from '../../../assets/home/slide4.jpg'
+import img5 from '../../../assets/home/slide5.jpg'
+
 const Category = () => {
     return (
         <Swiper
             slidesPerView={4}
-            spaceBetween={30}
+            spaceBetween={20}
             centeredSlides={true}
             pagination={{
                 clickable: true,
@@ -15,17 +21,29 @@ const Category = () => {
             modules={[Pagination]}
             className="mySwiper"
         >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            <SwiperSlide>Slide 2</SwiperSlide>
-            <SwiperSlide>Slide 3</SwiperSlide>
-            <SwiperSlide>Slide 4</SwiperSlide>
-            <SwiperSlide>Slide 5</SwiperSlide>
-            <SwiperSlide>Slide 6</SwiperSlide>
-            <SwiperSlide>Slide 7</SwiperSlide>
-            <SwiperSlide>Slide 8</SwiperSlide>
-            <SwiperSlide>Slide 9</SwiperSlide>
+            <SwiperSlide>
+                <img src={img1} alt="" />
+                <h1 className='text-3xl uppercase text-center -mt-14 text-white'>Salads</h1>
+            </SwiperSlide>
+            <SwiperSlide>
+                <img src={img2} alt="" />
+                <h1 className='text-3xl uppercase text-center -mt-14 text-white'>Soups</h1>
+            </SwiperSlide>
+            <SwiperSlide>
+                <img src={img3} alt="" />
+                <h1 className='text-3xl uppercase text-center -mt-14 text-white'>Pizza</h1>
+            </SwiperSlide>
+            <SwiperSlide>
+                <img src={img4} alt="" />
+                <h1 className='text-3xl uppercase text-center -mt-14 text-white'>Salads</h1>
+            </SwiperSlide>
+            <SwiperSlide>
+                <img src={img5} alt="" />
+                <h1 className='text-3xl uppercase text-center -mt-14 text-white'>soups</h1>
+            </SwiperSlide>
         </Swiper>
     );
 };
 
 export default Category;
+
