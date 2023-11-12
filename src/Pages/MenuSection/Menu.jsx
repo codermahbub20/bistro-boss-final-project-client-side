@@ -11,13 +11,13 @@ import soupImg from '../../assets/menu/soup-bg.jpg'
 
 const Menu = () => {
 
-    const[popularItems] = useMenu()
+    const[menu] = useMenu()
 
-    const Offered = popularItems.filter(item =>item.category === 'offered')
-    const dessert = popularItems.filter(item =>item.category === 'dessert')
-    const pizza = popularItems.filter(item =>item.category === 'pizza')
-    const salad = popularItems.filter(item =>item.category === 'salad')
-    const soup = popularItems.filter(item =>item.category === 'soup')
+    const Offered = menu.filter(item =>item.category === 'offered')
+    const dessert = menu.filter(item =>item.category === 'dessert')
+    const pizza = menu.filter(item =>item.category === 'pizza')
+    const salad = menu.filter(item =>item.category === 'salad')
+    const soup = menu.filter(item =>item.category === 'soup')
 
     return (
         <div className="my-5">

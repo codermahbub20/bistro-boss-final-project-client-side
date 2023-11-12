@@ -2,16 +2,16 @@ import { useEffect, useState } from "react";
 
 
 const useMenu = () => {
-    const [popularItems, setPopularItems] = useState([])
+    const [menu, setMenu] = useState([])
 
     useEffect(()=>{
         fetch('menu.json')
         .then(res => res.json())
         .then(data => {
-            setPopularItems(data)
+            setMenu(data)
         })
     },[])
-    return [popularItems]
+    return [menu]
 };
 
 export default useMenu;
