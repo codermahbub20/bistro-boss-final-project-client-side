@@ -24,20 +24,20 @@ const Menu = () => {
             <Cover img={coverImg} title="OUr menu" subTitle="Would you like to try a dish?"></Cover>
 
             <Sectiontitle subHeading="Don't Miss The Offer" heading="Offered items" ></Sectiontitle>
-            <MenuCategory items={Offered}></MenuCategory>
+            <MenuCategory  items={Offered}></MenuCategory>
 
-            <Cover img={dessertImg} title="DESSERTS" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."></Cover>
-            <MenuCategory items={dessert}></MenuCategory>
+            <Cover img={dessertImg} title="desserts" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."></Cover>
+            <MenuCategory title={"desserts"} items={dessert}></MenuCategory>
 
 
-            <Cover img={pizzaImg} title="Pizza" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."></Cover>
-            <MenuCategory items={pizza}></MenuCategory>
+            <Cover img={pizzaImg} title="pizza" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."></Cover>
+            <MenuCategory title={"pizza"} items={pizza}></MenuCategory>
 
             <Cover img={saladImg} title="salads" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."></Cover>
-            <MenuCategory items={salad}></MenuCategory>
+            <MenuCategory title={"salads"} items={salad}></MenuCategory>
 
             <Cover img={soupImg} title="soups" subTitle="Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."></Cover>
-            <MenuCategory items={soup}></MenuCategory>
+            <MenuCategory title={"soups"} items={soup}></MenuCategory>
 
         </div>
     );

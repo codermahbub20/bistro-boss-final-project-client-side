@@ -16,7 +16,7 @@ const CheckItOut = () => {
                             <p>December 20, 2023</p>
                             <h1 className='text-xl'>Where Can I Get Some ?</h1>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur hic neque, reprehenderit debitis provident nam corporis atque illum, cupiditate quibusdam iure nisi sit asperiores libero. Ipsa corporis molestiae, voluptatum vitae eum consequuntur ullam? Dolores delectus, culpa illum magnam vero harum.</p>
-                            <button className='btn btn-outline text-white hover:text-white hover:bg-none border-b-4'>Read More</button>
+                            <button className='btn btn-outline text-white hover:text-white hover:bg-none border-0 border-b-4'>Read More</button>
                         </div>
                     </div>
                 </div>
