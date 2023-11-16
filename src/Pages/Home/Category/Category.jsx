@@ -20,8 +20,22 @@ const Category = () => {
         </Sectiontitle>
 
             <Swiper
-                slidesPerView={4}
-                spaceBetween={20}
+               breakpoints={
+                {
+                0: {
+                slidesPerView: 2,
+                spaceBetween: 10,
+                },
+                768: {
+                slidesPerView: 3,
+                spaceBetween: 20,
+                },
+                1024:{
+                slidesPerView: 4,
+                spaceBetween: 20,
+                }
+                }
+                }
                 centeredSlides={true}
                 pagination={{
                     clickable: true,
