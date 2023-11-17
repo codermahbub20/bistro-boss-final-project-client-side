@@ -4,11 +4,12 @@ import loginSide from '../../assets/others/login.png'
 import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 import { AuthContext } from '../../providers/AuthProvider';
 import { useLocation, useNavigate } from 'react-router-dom';
+import SocialLogin from '../../Shared/SocialLogin';
 
 
 const Login = () => {
 
-    const {signIn} = useContext(AuthContext)
+    const { signIn } = useContext(AuthContext)
 
     const [disabled, setDisabled] = useState(true)
     const navigate = useNavigate()
@@ -26,13 +27,14 @@ const Login = () => {
 
         console.log(password, email)
 
-        signIn(email,password)
-        .then(res => {
-            console.log(res)
-        })
-        .catch(error =>{
-            console.log(error)
-        })
+        signIn(email, password)
+            .then(res => {
+                console.log(res)
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error)
+            })
     }
 
     const handleValidateCaptcha = () => {
@@ -54,7 +56,7 @@ const Login = () => {
     return (
         <div className="hero min-h-screen" style={{ backgroundImage: `url("${loginBg}")` }}>
 
-            <div style={{ backgroundImage: `url("${loginBg}")` }} className='lg:w-3/4 2xl:h-[70vh] rounded-lg mx-auto shadow-2xl'>
+            <div style={{ backgroundImage: `url("${loginBg}")` }} className='lg:w-3/4 2xl:h-[90vh] rounded-lg mx-auto shadow-2xl'>
                 <div className='xl:flex flex-row-reverse items-center justify-around'>
                     <div>
                         <img className='w-3/4' src={loginSide} alt="" />
@@ -85,7 +87,9 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <button disabled={disabled} className="btn btn-primary">Login</button>
                             </div>
+                            <SocialLogin></SocialLogin>
                         </form>
+
                     </div>
                 </div>
             </div>
