@@ -1,18 +1,19 @@
-import { FaDeleteLeft } from "react-icons/fa6";
-import useCart from "../../../hooks/useCart";
+import { FaTrash } from "react-icons/fa6";
+import useMenu from "../../hooks/useMenu";
+import { FaEdit } from "react-icons/fa";
+import Sectiontitle from "../../Component/SectionTitle/Sectiontitle";
 import Swal from "sweetalert2";
-import useAxiosSecure from "../../../hooks/useAxiosSecure";
-import { Link } from "react-router-dom";
+import useAxiosSecure from "../../hooks/useAxiosSecure";
 
 
-const Cart = () => {
 
-    const [cart,refetch] = useCart();
+const ManageItem = () => {
 
-    const totalPrice = parseInt(cart.reduce((total, item) => total + item.price, 0))
+    const [menu] = useMenu()
     const axiosSecure = useAxiosSecure()
 
     const handleCartToDelete = id => {
+        console.log(id)
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -23,13 +24,11 @@ const Cart = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosSecure.delete(`/carts/${id}`)
-               
+                axiosSecure.delete(`/menu/${id}`)    
                     .then(res => {
                         console.log(res) 
-
                         if (res.data.deletedCount > 0) {
-                            refetch();
+                            // refetch();
                             Swal.fire({
                                 title: "Deleted!",
                                 text: "Your file has been deleted.",
@@ -42,16 +41,16 @@ const Cart = () => {
         });
     }
 
+    const handleMenuUpdate = id =>{
+
+    }
+
+
     return (
-        <div className="bg-white shadow-lg rounded-lg p-10">
-            <div className="flex justify-evenly">
-                <h1 className="text-3xl">Total Order: {cart.length}</h1>
-                <h1 className="text-3xl">Total Price: $ {totalPrice}</h1>
-                {
-                    cart.length ? <Link to="/dashboard/myPayment"><button className="btn bg-[#D1A054] text-white hover:bg-[#D1A054]">Pay</button></Link> : 
-                    <button disabled className="btn bg-[#D1A054] text-white hover:bg-[#D1A054]">Pay</button>
-                }
-            </div>
+        <div>
+
+            <Sectiontitle heading='Manage All Items' subHeading="Hurry Up !"></Sectiontitle>
+
 
             <div className="overflow-x-auto">
                 <table className="table">
@@ -62,12 +61,13 @@ const Cart = () => {
                             <th>Image</th>
                             <th>Name</th>
                             <th>Price</th>
-                            <th>Action</th>
+                            <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            cart.map(item => <tr key={item._id}>
+                            menu.map(item => <tr key={item._id}>
 
                                 <td>
                                     <div className="flex items-center gap-3">
@@ -83,7 +83,10 @@ const Cart = () => {
                                 </td>
                                 <td className="text-xl">$ {item.price}</td>
                                 <th>
-                                    <button onClick={() => handleCartToDelete(item._id)} className="btn btn-ghost btn-sm"><FaDeleteLeft className="w-10 h-7"></FaDeleteLeft></button>
+                                    <button onClick={() => handleMenuUpdate(item._id)} className="btn btn-ghost btn-sm"><FaEdit ></FaEdit></button>
+                                </th>
+                                <th>
+                                    <button onClick={() => handleCartToDelete(item._id)} className="btn btn-ghost btn-sm"><FaTrash ></FaTrash></button>
                                 </th>
                             </tr>)
                         }
@@ -98,4 +101,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default ManageItem;

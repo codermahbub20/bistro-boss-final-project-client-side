@@ -10,7 +10,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
 
     if(loading) {
-        <p>H</p>
+       return <p>H</p>
     }
 
     if(user){
